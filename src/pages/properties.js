@@ -7,7 +7,7 @@ export default ()=> {
   return(
     <Section height="calc(100vh - 103.38px)">
       <Container>
-        <h1>Inicio</h1>
+        <h1>Propiedades</h1>
       </Container>
     </Section>
   )
