@@ -9,9 +9,15 @@ import Logo from './logo';
 import { NavLink, NavButton } from '../styled-components';
 
 const Header = styled.header`
-  
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 `
 const Navigation = styled.nav`
+  padding: 1rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +33,7 @@ const NavItem = styled.li`
   
 `
 
-export default ()=> {
+export default ({ dark })=> {
   const state = useContext(context);
 
   return(
@@ -36,36 +42,31 @@ export default ()=> {
       <Container>
         <Navigation>
           <AniLink paintDrip hex={state.primaryColor} to="/" duration={.5}>
-            <Logo />
+            <Logo dark={dark} light={!dark} />
           </AniLink>
           <NavList horizontal>
             <NavItem>
               <AniLink paintDrip hex={state.primaryColor} to="/properties" duration={.5}>
-                <NavLink dark first>
+                <NavLink dark={dark} light={!dark}>
                   Propiedades
                 </NavLink>
               </AniLink>            
             </NavItem>
             <NavItem>
               <AniLink paintDrip hex={state.primaryColor} to="/about" duration={.5}>
-                <NavLink dark>
+                <NavLink dark={dark} light={!dark}>
                   Nosotros
                 </NavLink>
               </AniLink>            
             </NavItem>
             <NavItem>
               <AniLink paintDrip hex={state.primaryColor} to="/contact" duration={.5}>
-                <NavLink dark>
+                <NavLink dark={dark} light={!dark}>
                   Contacto
                 </NavLink>
               </AniLink>                                    
             </NavItem>
           </NavList>
-          <a href={`http://app.clasihome.com/login?logo=${state.logo}&primaryColor=${state.primaryColor.substring(1)}`} target="_blank" rel="noopener" duration={.5}>
-            <NavButton primary outlined>
-              Login
-            </NavButton>
-          </a>
         </Navigation>
       </Container>
     </Header>    

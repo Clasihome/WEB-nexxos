@@ -6,6 +6,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 const MainCont = styled.div`
   padding: 0;
   user-select: none;
+  background-color: ${props => props.theme.primaryColor};
 `
 const RatesCont = styled.ul`
   list-style: none;
@@ -19,7 +20,7 @@ const RatesCont = styled.ul`
   @media(min-width: 992px){
     font-weight: normal;
     justify-content: flex-end;
-    color: ${props => props.theme.primaryColor};
+    //color: ${props => props.theme.primaryColor};
     margin: 0;
     font-size: .7rem;
   }
@@ -67,8 +68,11 @@ export default ()=> {
 
   const getAllData = async()=> {
     const localData = window.localStorage.getItem("indicators");
-    const oneDay = new Date().getTime() + (1 * 24 * 60 * 60 * 1000)
-    if(!localData || oneDay > new Date(localData.date).getTime()){
+    const parsedData = JSON.parse(localData);
+    const today = new Date(Date.now());
+    const lastDay = new Date(parsedData.date);
+    const requestApi = !localData || today.getDate() >= lastDay.getDate() + 1;
+    if(requestApi){
       try{
         const urls = ["https://mindicador.cl/api/uf", "https://mindicador.cl/api/utm", "https://mindicador.cl/api/dolar"];
         const data = await Promise.all(urls.map(url => getData(url)));
@@ -89,7 +93,6 @@ export default ()=> {
       }
     }
     else{
-      console.log("ALL DATA RATE YESTERDAY", JSON.parse(localData).uf);
       setQuery({ loading: false, error: false, data: JSON.parse(localData) });
     }
   };
@@ -125,13 +128,13 @@ export default ()=> {
       <Container>
         <RatesCont>
           <RateItem>
-            UF {query.data.uf}
+            UF ${query.data.uf}
           </RateItem>
           <RateItem>
-            UTM {query.data.utm}
+            UTM ${query.data.utm}
           </RateItem>
           <RateItemNoAfter>
-            Dólar {query.data.dollar}
+            Dólar ${query.data.dollar}
           </RateItemNoAfter>                    
         </RatesCont>
       </Container>

@@ -1,14 +1,20 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { Section } from '../styled-components';
+import React, { Fragment } from 'react';
+
+import Hero from '../components/about/hero';
+import History from '../components/about/history';
+import Description from '../components/about/description';
+import Ubication from '../components/ubication';
+import Contact from '../components/contact';
 
 export default ()=> {
 
   return(
-    <Section height="calc(100vh - 103.38px)">
-      <Container>
-        <h1>Nosotros</h1>
-      </Container>
-    </Section>
+    <Fragment>
+      <Hero />
+      <History />
+      <Description />
+      <Ubication />
+      <Contact />
+    </Fragment>
   )
 }

@@ -10,8 +10,8 @@ import { NavLink } from '../styled-components';
 import Map from '../components/map';
 
 const Footer = styled.footer`
-  background-color: #333;
   padding: 1rem 0 0;
+  background-color: rgba(0, 0, 0, .070);
 `
 const FooterText = styled.p`
   color: gray;
@@ -87,7 +87,7 @@ const BackTop = styled.button`
   background: ${props => props.theme.primaryColor};
   margin-bottom: 1rem;
   transition: 250ms ease;
-  color: #fff;
+  color: #000;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, .12),
               0px 2px 2px rgba(0, 0, 0, .12),
               0px 4px 4px rgba(0, 0, 0, .12),
@@ -102,7 +102,7 @@ const BackTop = styled.button`
 
 const CopyrightCont = styled.div`
   padding: .3rem 0;
-  color: #fff;
+  color: #000;
   background-color: ${props => props.theme.primaryColor};
   font-size: .7rem;
   margin-top: 1rem;
@@ -112,7 +112,7 @@ const CopyrightInnerCont = styled.div`
   justify-content: space-between;
 `
 const DevelopedBy = styled.a`
-  color: #fff !important;
+  color: #000 !important;
   transition: 250ms ease;
   font-weight: bold;
   &:hover{
@@ -160,7 +160,7 @@ export default ()=> {
               }          
             </InfoList>
           </Col>
-          <Col xs={12} md={6} lg={4}>
+          <Col xs={12} md={6} lg={5}>
             <NavCont>
               <NavList>
                 <NavItem>
@@ -197,7 +197,7 @@ export default ()=> {
               </FooterText>
             </NavCont>
           </Col>                          
-          <Col xs={{ span: 6, order: 12 }} md={12} lg={4}>
+          <Col xs={{ span: 6, order: 12 }} md={12} lg={3}>
             <NavCont className="align-items-end">
               <BackTop onClick={()=> window.scrollTo(0, 0)} href="#top">
                 <UpOutlined />

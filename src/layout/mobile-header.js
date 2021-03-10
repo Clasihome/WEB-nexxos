@@ -12,6 +12,7 @@ import { NavLink } from '../styled-components';
 
 const Header = styled.header`
   //overflow: hidden;
+  background-color: ${props => props.theme.primaryColor};
   position: fixed;
   width: 100%;
   top: 0;
@@ -57,7 +58,7 @@ export default ()=> {
       <Container>
         <Navigation>
           <AniLink paintDrip hex={state.primaryColor} to="/" duration={.5}>
-            <Logo />
+            <Logo mobile/>
           </AniLink>
           <HamburgerMenu
             isOpen={open}
@@ -66,7 +67,7 @@ export default ()=> {
             height={15}
             strokeWidth={2}
             rotate={0}
-            color={state.primaryColor}
+            color="#ffffff"
             borderRadius={0}
             animationDuration={0.5}
           />          

@@ -1,14 +1,12 @@
-import React from 'react';
-import { Container } from 'react-bootstrap';
-import { Section } from '../styled-components';
+import React, { Fragment } from 'react';
+
+import Contact from '../components/contact-us';
 
 export default ()=> {
 
   return(
-    <Section height="calc(100vh - 103.38px)">
-      <Container>
-        <h1>Contacto</h1>
-      </Container>
-    </Section>
+    <Fragment>
+      <Contact />
+    </Fragment>
   )
 }

@@ -13,15 +13,15 @@ export default (data) => {
       favicon: data.favicon ? data.favicon : require("../images/icon.png"),      
       lat: data.lat ? data.lat : "-33.410167",
       lng: data.lng ? data.lng : "-70.655265",
-      logo: data.logo ? data.logo : "",
-      logoDark: data.logoDark ? data.logoDark : "",
+      logo: data.logo ? data.logo : require("../images/logo-light.png"),
+      logoDark: data.logoDark ? data.logoDark : require("../images/logo-dark.png"),
       movil: data.movil ? data.movil : "",
       phone: data.phone ? data.phone : "",
       footerText: data.footerText ? data.footerText : "Somos una empresa con mas de 20 años en el rubro del corretaje inmobiliario",
       home:{
         hero: {
-          background: data.home && data.home.hero && data.home.hero.background ? data.home.hero.background : require("../images/home-hero-background.jpg"),
-          title: data.home && data.home.hero && data.home.hero.title ? data.home.hero.title : "Tenemos las mejores propiedades vacacionales para ti y tu familia."
+          background: data.home && data.home.hero && data.home.hero.background ? data.home.hero.background : require("../images/template-home-hero-background.jpg"),
+          title: data.home && data.home.hero && data.home.hero.title ? data.home.hero.title : "Tenemos propiedades <br /> exclusivas pensadas para tí"
         },        
         properties: {
           title: data.home && data.home.properties && data.home.properties.title ? data.home.properties.title : "Contamos con una selección exclusiva de propiedades.",

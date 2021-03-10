@@ -13,7 +13,8 @@ import Footer from './footer';
 
 const GlobalStyles = createGlobalStyle`
   *{
-    font-family: 'Open Sans', sans-serif;
+    //font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
   }
   html{
     font-size: 14px;
@@ -21,11 +22,15 @@ const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     scroll-behavior: smooth;
     @media(min-width: 768px){
-      font-size: 18px;
+      font-size: 16px;
     }
+    @media(min-width: 1200px){
+      font-size: 18px;
+    }    
   }
   body{
     color: #333333;
+    background-color: rgba(0, 0, 0, .050);
   }
   a{
     text-decoration: none !important;
@@ -34,18 +39,45 @@ const GlobalStyles = createGlobalStyle`
     }
   }
   h1, h2, h3, h4, h5, h6{
-    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
   }
   button, input, select, option, textarea{
     outline: none;
+    //font-family: 'Open Sans', sans-serif !important;
   }
   input, select, option, textarea{
-
+    padding-left: .7rem !important;
+  }
+  .tl-edges {
+    width: 100% !important;
+  }
+  .image-gallery-slide-wrapper{
+    @media(min-width:768px){
+      width: calc(100% - 80px) !important;
+    }
+  }
+  .image-gallery-thumbnails-wrapper{
+    @media(min-width:768px){
+      width: 70px !important;
+    }    
+  }
+  .image-gallery-thumbnails-container{
+    //width: 70px !important;
+  }
+  .thumbnail-custom{
+    @media(min-width:768px){
+      width: 70px !important;
+    }    
+    img{
+      max-height: 70px;
+    }
   }
 `
 
 const MainCont = styled.div`
-  padding-top: 81.38px;
+  padding-top: 95.38px;
+  overflow-x: visible !important;
   @media(min-width: 992px){
     padding-top: 0px;
   }
@@ -66,7 +98,7 @@ display: none;
   align-items: center;
   justify-content: center;
   position: fixed;
-  top: ${props => props.phone ? "45%" : "52%"};;
+  top: ${props => props.phone ? "50%" : "calc(50% + 45px + 1rem)"};;
   right:.5rem;
   background-color: #fff;
   //background-color: #06d755;
@@ -108,6 +140,7 @@ export default ({ children, location }) => {
   const getFeatured = async(id, typeId, maxProperties)=> {
     try{
       const data = await fetch(`https://api.clasihome.com/rest/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}&integration=WEB&featured=true`);
+      //const data = await fetch(`https://api.clasihome.com/rest/properties?id=${id}&typeId=${typeId}&status=PUBLICADA&limit=${maxProperties}`);
       const result = await data.json();
       return result;
     }catch(e){
@@ -118,34 +151,34 @@ export default ({ children, location }) => {
   const handleData = async()=> {
     const preview = /builderId/.test(location.search);
     const builderId = preview && location.search.match('[?&]' + "builderId" + '=([^&]+)')[1];
-    if(runtimeData.initial.data){
-      const dataEval = formatData(JSON.parse(runtimeData.initial.data));
-      console.log("DATA SIN FORMATO", JSON.parse(runtimeData.initial.data));
-      const featuredProperties = await getFeatured(dataEval.officeId, dataEval.typeId, dataEval.home.properties.maxProperties);
-      dataEval.featuredProperties = featuredProperties.properties;
-      console.log("RUNTIME DATA", dataEval);
-      setData({ loading: false, data: dataEval });
-    }
-    else if(builderId){
-      try{
-        const data = await fetch(`https://api.clasihome.com/rest/builders?builderId=${builderId}`);
-        const result = await data.json();
-        const dataEval = formatData(result);
+    try{
+      if(runtimeData.initial.data){
+        const dataEval = formatData(JSON.parse(runtimeData.initial.data));
+        console.log("DATA SIN FORMATO", JSON.parse(runtimeData.initial.data));
         const featuredProperties = await getFeatured(dataEval.officeId, dataEval.typeId, dataEval.home.properties.maxProperties);
         dataEval.featuredProperties = featuredProperties.properties;
-        console.log("PREVIEW DATA");
+        console.log("RUNTIME DATA", dataEval);
         setData({ loading: false, data: dataEval });
-      }catch(e){
-        console.log("ERROR", e);
-        setData({ loading: false, error: e });
       }
-    }
-    else{
-      const dataEval = formatData({ officeId: "5e8e36b31c9d440000d35090" });
-      const featuredProperties = await getFeatured(dataEval.officeId, dataEval.typeId, dataEval.home.properties.maxProperties);
-      dataEval.featuredProperties = featuredProperties.properties;
-      console.log("NO DATA", dataEval);
-      setData({ loading: false, data: dataEval });
+      else if(builderId){
+          const data = await fetch(`https://api.clasihome.com/rest/builders?builderId=${builderId}`);
+          const result = await data.json();
+          const dataEval = formatData(result);
+          const featuredProperties = await getFeatured(dataEval.officeId, dataEval.typeId, dataEval.home.properties.maxProperties);
+          dataEval.featuredProperties = featuredProperties.properties;
+          console.log("PREVIEW DATA");
+          setData({ loading: false, data: dataEval });
+      }
+      else{
+        console.log("NO DATA", dataEval);
+        const dataEval = formatData({ office: "5e8e36b31c9d440000d35090" });
+        const featuredProperties = await getFeatured(dataEval.officeId, dataEval.typeId, dataEval.home.properties.maxProperties);
+        dataEval.featuredProperties = featuredProperties.properties;
+        setData({ loading: false, data: dataEval });
+      }
+    }catch(e){
+      console.log("ERROR", e);
+      setData({ loading: false, error: e });
     }
   }
 
@@ -161,7 +194,7 @@ export default ({ children, location }) => {
 
   if(data.error) return(
     <LoadingCont>
-      {data.error}
+      Error de conexion
     </LoadingCont>
   );
 
@@ -184,7 +217,7 @@ export default ({ children, location }) => {
           </Helmet>                       
           <GlobalStyles />
           <MobileHeader />
-          <DesktopHeader />
+          <DesktopHeader dark={location.pathname !== "/" && location.pathname !== "/about" ? true : false} />
           {children}
           <ContactButton title="Enviar WhatsApp" rel="noopener" target="_blank" href={`https://api.whatsapp.com/send?phone=${data.data.movil.replace(/\s/g,'')}&text=Hola,%20estoy%20visitando%20su%20sitio%20Web%20y%20quisiera%20comunicarme%20con%20uestedes.`}>
             <WhatsAppOutlined />
