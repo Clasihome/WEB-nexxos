@@ -11,7 +11,6 @@ import Map from '../components/map';
 
 const Footer = styled.footer`
   padding: 1rem 0 0;
-  background-color: rgba(0, 0, 0, .070);
 `
 const FooterText = styled.p`
   color: gray;
