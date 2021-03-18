@@ -16,6 +16,7 @@ const Title = styled.p`
   text-align: center;
   font-weight: bold;
   margin: 0;
+  color: #fff;
 `
 
 export default ()=> {
@@ -23,7 +24,7 @@ export default ()=> {
   return(
     <MainCont>
       <Title>
-        {state.about.ubication.title}
+        {state.contact.map.title}
       </Title>
       {
         state.lat && (

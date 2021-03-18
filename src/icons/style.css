@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?8y7e01');
-  src:  url('fonts/icomoon.eot?8y7e01#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?8y7e01') format('truetype'),
-    url('fonts/icomoon.woff?8y7e01') format('woff'),
-    url('fonts/icomoon.svg?8y7e01#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?c20sn8');
+  src:  url('fonts/icomoon.eot?c20sn8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?c20sn8') format('truetype'),
+    url('fonts/icomoon.woff?c20sn8') format('woff'),
+    url('fonts/icomoon.svg?c20sn8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-chart-years:before {
+  content: "\e931";
+  
+}
+.icon-leasy-quote-right:before {
+  content: "\e92f";
+  
+}
+.icon-leasy-quote-left:before {
+  content: "\e930";
+  
+}
 .icon-check:before {
   content: "\e92e";
 }
@@ -35,19 +47,15 @@
   content: "\e900";
   
 }
-.icon-icon-chart-years:before {
-  content: "\20";
-  
-}
-.icon-icon-chart-properties:before {
+.icon-chart-properties:before {
   content: "\e902";
   
 }
-.icon-icon-chart-transactions:before {
+.icon-chart-transactions:before {
   content: "\e903";
   
 }
-.icon-icon-chart-team:before {
+.icon-chart-team:before {
   content: "\e904";
   
 }

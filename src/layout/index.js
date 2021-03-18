@@ -14,7 +14,7 @@ import Footer from './footer';
 const GlobalStyles = createGlobalStyle`
   *{
     //font-family: 'Open Sans', sans-serif;
-    font-family: 'Raleway', sans-serif !important;
+    font-family: 'Lato', sans-serif !important;
   }
   html{
     font-size: 14px;

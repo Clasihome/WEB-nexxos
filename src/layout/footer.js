@@ -87,7 +87,7 @@ const BackTop = styled.button`
   background: ${props => props.theme.primaryColor};
   margin-bottom: 1rem;
   transition: 250ms ease;
-  color: #000;
+  color: #fff;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, .12),
               0px 2px 2px rgba(0, 0, 0, .12),
               0px 4px 4px rgba(0, 0, 0, .12),
@@ -102,7 +102,7 @@ const BackTop = styled.button`
 
 const CopyrightCont = styled.div`
   padding: .3rem 0;
-  color: #000;
+  color: #fff;
   background-color: ${props => props.theme.primaryColor};
   font-size: .7rem;
   margin-top: 1rem;
@@ -112,7 +112,7 @@ const CopyrightInnerCont = styled.div`
   justify-content: space-between;
 `
 const DevelopedBy = styled.a`
-  color: #000 !important;
+  color: #fff !important;
   transition: 250ms ease;
   font-weight: bold;
   &:hover{
@@ -132,22 +132,34 @@ export default ()=> {
               <Logo dark />
             </AniLink>
             <InfoList>
-              <InfoItem>
-                <EnvironmentOutlined />
-                {state.address}
-              </InfoItem>
-              <InfoItem>
-                <MailOutlined />
-                <InfoLink title="Enviar un email" href={`mailto:${state.email}`}>
-                  {state.email}
-                </InfoLink>
-              </InfoItem>
-              <InfoItem>
-                <PhoneOutlined />
-                <InfoLink title="Llamar" href={`tel:${state.phone.replace(/\s/g,'')}`}>
-                  {state.phone}
-                </InfoLink>
-              </InfoItem>
+              {
+                state.address && (
+                  <InfoItem>
+                    <EnvironmentOutlined />
+                    {state.address}
+                  </InfoItem>                  
+                )
+              }
+              {
+                state.email && (
+                  <InfoItem>
+                    <MailOutlined />
+                    <InfoLink title="Enviar un email" href={`mailto:${state.email}`}>
+                      {state.email}
+                    </InfoLink>
+                  </InfoItem>                  
+                )
+              }
+              {
+                state.phone && (
+                  <InfoItem>
+                    <PhoneOutlined />
+                    <InfoLink title="Llamar" href={`tel:${state.phone.replace(/\s/g,'')}`}>
+                      {state.phone}
+                    </InfoLink>
+                  </InfoItem>                
+                )
+              }
               {
                 state.movil && (
                   <InfoItem>

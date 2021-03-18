@@ -32,39 +32,40 @@ const ButtonBackCustom = styled(ButtonBack)`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: ${props => props.theme.primaryColor};
-  filter: brightness(1.1);
+  background-color: rgba(255, 255, 255, .5);
+  color: #fff;
   transition: 250ms ease;
   border:none;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: inherit !important;
   &:hover{
     background-color: #fff;
+    color: ${props => props.theme.primaryColor};
   }
 `
 const ButtonNextCustom = styled(ButtonNext)`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: ${props => props.theme.primaryColor};
-  filter: brightness(1.1);
+  background-color: rgba(255, 255, 255, .5);
+  color: #fff;
   transition: 250ms ease;
   border:none;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: inherit !important;
   margin-left: 1rem;
   &:hover{
     background-color: #fff;
+    color: ${props => props.theme.primaryColor};
   }
 `
 const Card = styled.div`
   margin-left: 0 .5rem;
+  color: #fff;
 `;
 const Title = styled.p`
   font-size: 1.5rem;

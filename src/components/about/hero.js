@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import context from '../../context';
 import styled from 'styled-components';
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 import { Section } from '../../styled-components';
 
@@ -29,9 +29,13 @@ export default ()=> {
       src={state.about.hero.background}
     >
       <Container>
-        <Title>
-          {state.about.hero.title}
-        </Title>
+        <Row>
+          <Col xs={12} md={6}>
+            <Title>
+              {state.about.hero.title}
+            </Title>
+          </Col>
+        </Row>
       </Container>
     </MainCont>
   )

@@ -17,8 +17,16 @@ const Image = styled.img`
     height: 100%;
   }
 `
+const InfoCont = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
 const Title = styled.h2`
   //width: 50%;
+  color: ${props => props.theme.primaryColor};
+  margin: 2rem 0;
 `
 const Description = styled.div`
 
@@ -34,10 +42,12 @@ export default ()=> {
             <Image alt="historia" src={state.about.history.background} />
           </Col>
           <Col xs={12} md={{ span: 5, order: 1 }}>
+            <InfoCont>
             <Title>
               {state.about.history.title}
             </Title>
             <Description dangerouslySetInnerHTML={{ __html: state.about.history.description }} />
+            </InfoCont>
           </Col>          
         </Row> 
       </Container>

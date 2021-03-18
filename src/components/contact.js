@@ -25,12 +25,12 @@ export default ()=> {
     <SectionCustom>
       <Container>
         <Row className="align-items-center">
-          <Col xs={12} md={10}>
+          <Col xs={12} md={9}>
             <Title>
-              {state.contact.map.title}
+              {state.about.ubication.title}
             </Title>
           </Col>
-          <Col xs={12} md={2}>
+          <Col xs={12} md={3}>
             <AniLink paintDrip hex={state.primaryColor} to="/contact" duration={.5}>
               <Button
                 primary

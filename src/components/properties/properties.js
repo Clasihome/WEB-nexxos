@@ -14,7 +14,7 @@ const NavPaginate = styled.nav`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 0 0;
   outline: none !important;
   color: #979797;
   .container{
@@ -28,7 +28,7 @@ const NavPaginate = styled.nav`
   }
   .active{
     background-color: ${props => props.theme.primaryColor};
-    color: #333;
+    color: #fff;
     height: 28px;
     width: 28px;
     border-radius: 50%;

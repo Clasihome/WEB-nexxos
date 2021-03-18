@@ -20,6 +20,7 @@ const InfoCont = styled.div`
   margin-right: auto;
   margin-left: auto;    
   padding-top: 1rem;  
+  color: #fff;
   @media (min-width: 768px){
     max-width: 720px;
     padding: 2rem 15px;

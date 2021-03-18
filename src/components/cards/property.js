@@ -21,9 +21,13 @@ const AniLinkCustom = styled(AniLink)`
 `
 
 const Card = styled.div`
-  width: 100%;
+  width: 95%;
   border: 1px solid rgba(0, 0, 0, .1);
   min-height: 496.09px;
+  @media(min-width: 768px){
+    width: 100%;
+    margin:0;
+  }
 `
 const Image = styled.div`
   width: 100%;

@@ -79,6 +79,7 @@ const NavButton = styled.button`
   border: none;
   transition: 250ms ease;
   margin: 0 .5rem;
+  color: #fff;
   @media(min-width:768px){
 
   }
@@ -195,7 +196,7 @@ export default ()=> {
   return(
     <Section height="50vh" first>
       <Container>
-        <Row>
+        <Row className="pt-3">
           <Col xs={12} md={7} className="d-none d-md-block">
             <ImageGalleryCustom
               items={gallery}

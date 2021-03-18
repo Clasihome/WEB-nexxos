@@ -93,7 +93,7 @@ export default ()=> {
   }
     
   return(
-    <Section height="100vh" first>
+    <Section first>
       <Container>
         <Title>
           {state.contact.title}

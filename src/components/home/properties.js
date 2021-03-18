@@ -12,6 +12,7 @@ const Title = styled.p`
   font-size: 1.5rem;
   //color: ${props => props.theme.primaryColor};
   text-align: center;
+  margin-bottom: 2rem;
 `
 const PropertiesCarouselCont = styled.div`
   min-height: 50vh;
@@ -35,7 +36,6 @@ export default ()=>{
 
   return(
     <Section id="properties">
-      {console.log("PROPERTIES", state)}
       <Container>
         <Title>
           {state.home.properties.title}
