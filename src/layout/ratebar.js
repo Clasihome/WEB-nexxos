@@ -68,10 +68,11 @@ export default ()=> {
 
   const getAllData = async()=> {
     const localData = window.localStorage.getItem("indicators");
-    const parsedData = JSON.parse(localData);
+    const parsedData = localData ? JSON.parse(localData) : null;
     const today = new Date(Date.now());
-    const lastDay = new Date(parsedData.date);
+    const lastDay = parsedData ? new Date(parsedData.date) : null;
     const requestApi = !localData || today.getDate() >= lastDay.getDate() + 1;
+
     if(requestApi){
       try{
         const urls = ["https://mindicador.cl/api/uf", "https://mindicador.cl/api/utm", "https://mindicador.cl/api/dolar"];
