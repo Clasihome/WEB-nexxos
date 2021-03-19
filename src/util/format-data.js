@@ -79,7 +79,7 @@ export default (data) => {
           title: data.about && data.about.hero && data.about.hero.title ? data.about.hero.title : "Un equipo de profesionales especializados en el sector inmobiliario."
         },
         history: {
-          background: data.about && data.about.history && data.about.history.background ? data.about.history.background : require("../images/home-about-history-background.jpg"),
+          background: data.about && data.about.history && data.about.history.background ? data.about.history.background : require("../images/template-about-history-background.jpg"),
           description: data.about && data.about.history && data.about.history.description ? data.about.history.description : "<p>Somos clasihome, una empresa con varios años de trayectoria en el dinámico mercado inmobiliario, reconocidos por un servicio altamente personalizado y eficiente.</p><p>Nuestra gran fortaleza es el profundo conocimiento comercial inmobiliario que nos permite agregar valor a todos los proyectos que emprendemos y servicios que entregamos.<p/>",
           title: data.about && data.about.history && data.about.history.title ? data.about.history.title : "Nuestra Historia"
         },
@@ -109,28 +109,28 @@ export default (data) => {
           visible: true,
           items: data.about && data.about.team && data.about.team.items.length ? data.about.team.items : [
             {
-              avatar: require("../images/team-member-2.jpg"),
+              avatar: require("../images/template-team-member-1.jpg"),
               cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
               email: "usuario1@example.com",
               fullName: "Usuario 1",
               phone: "+56 9 5555 5555"
             },
             {
-              avatar: require("../images/team-member-1.jpg"),
+              avatar: require("../images/template-team-member-2.jpg"),
               cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca.",
               email: "usuario2@example.com",
               fullName: "Usuario 2",
               phone: "+56 9 5555 5555"
             },
             {
-              avatar: require("../images/team-member-3.jpg"),
+              avatar: require("../images/template-team-member-3.jpg"),
               cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
               email: "usuario3@example.com",
               fullName: "Usuario 3",
               phone: "+56 9 5555 5555"
             },
             {
-              //avatar: require("../images/team-member-4.jpg"),
+              //avatar: require("../images/template-team-member-4.jpg"),
               avatar: "",
               cv: "Ingeniero Comercial, Master en Finanzas. Inversor inmobiliario, con 6 años de experiencia en Banca, Mesa de Dinero. 6 años en el corretaje de propiedades, especializado en el manejo de cartera de propiedades. ",
               email: "usuario4@example.com",
